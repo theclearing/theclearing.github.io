@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Clearing — A circle of Black men, doing the work | Pittsburgh</title>
+<meta name="description" content="The Clearing is a peer support group for Black men in Pittsburgh. Seven sessions per round, every other week. Next round begins September 20.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#1C382C;
+    --bone:#F1EBDE;
+    --amber:#E39B2D;
+    --ink:#131311;
+    --moss:#7EA184;
+    --display:'Anton', system-ui, sans-serif;
+    --body:'Archivo', system-ui, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *, *::before, *::after{animation:none !important;transition:none !important;}
+  }
+  body{
+    font-family:var(--body);
+    background:var(--ink);
+    color:var(--ink);
+    font-size:17px;
+    line-height:1.6;
+  }
+  ::selection{background:var(--amber);color:var(--ink);}
+
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible{
+    outline:3px solid var(--amber);
+    outline-offset:3px;
+  }
+
+  .block{
+    padding:clamp(4rem, 9vw, 8rem) clamp(1.25rem, 6vw, 6rem);
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:var(--forest);
+    color:var(--bone);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0.9rem clamp(1.25rem, 6vw, 6rem);
+    border-bottom:1px solid rgba(241,235,222,0.15);
+  }
+  nav .wordmark{
+    font-family:var(--display);
+    font-size:1.15rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    text-decoration:none;
+    display:flex;align-items:center;gap:0.6rem;
+  }
+  nav .wordmark svg{flex:none;}
+  nav ul{display:flex;gap:1.75rem;list-style:none;}
+  nav ul a{
+    text-decoration:none;
+    font-weight:700;
+    font-size:0.8rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    opacity:0.85;
+  }
+  nav ul a:hover{opacity:1;border-bottom:3px solid var(--amber);}
+  @media(max-width:720px){
+    nav ul{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--forest);
+    color:var(--bone);
+    min-height:88vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero h1{
+    font-family:var(--display);
+    font-weight:400;
+    text-transform:uppercase;
+    font-size:clamp(3.2rem, 11vw, 9.5rem);
+    line-height:0.95;
+    letter-spacing:0.01em;
+  }
+  .hero h1 .line{display:block;}
+  .hero h1 .accent{color:var(--amber);}
+  .hero .sub{
+    margin-top:2.5rem;
+    max-width:34ch;
+    font-size:clamp(1.05rem, 1.6vw, 1.35rem);
+    font-weight:500;
+  }
+  .hero .meta{
+    margin-top:2.5rem;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1rem;
+  }
+  .hero .meta span{
+    border:2px solid var(--bone);
+    padding:0.45rem 1rem;
+    font-weight:700;
+    font-size:0.8rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+  }
+  .hero .circle-mark{
+    position:absolute;
+    right:clamp(-6rem, -2vw, 2rem);
+    top:50%;
+    transform:translateY(-50%);
+    width:clamp(280px, 38vw, 560px);
+    opacity:0.28;
+    pointer-events:none;
+  }
+  .hero-cta{
+    display:inline-block;
+    margin-top:3rem;
+    background:var(--amber);
+    color:var(--ink);
+    text-decoration:none;
+    font-family:var(--display);
+    text-transform:uppercase;
+    font-size:1.15rem;
+    letter-spacing:0.05em;
+    padding:1rem 2.25rem;
+  }
+  .hero-cta:hover{background:var(--bone);}
+
+  /* ---------- SHARED HEADINGS ---------- */
+  .eyebrow{
+    font-weight:900;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    font-size:0.78rem;
+    margin-bottom:1.5rem;
+    display:block;
+  }
+  h2{
+    font-family:var(--display);
+    font-weight:400;
+    text-transform:uppercase;
+    font-size:clamp(2.2rem, 5.5vw, 4.5rem);
+    line-height:1;
+    margin-bottom:2rem;
+    max-width:14ch;
+  }
+  .prose{max-width:58ch;}
+  .prose p + p{margin-top:1.25rem;}
+  .prose strong{font-weight:900;}
+
+  /* ---------- ABOUT (bone) ---------- */
+  .about{background:var(--bone);color:var(--ink);}
+  .about .eyebrow{color:var(--forest);}
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:clamp(2rem, 6vw, 6rem);
+    align-items:start;
+  }
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr;}}
+  .name-card{
+    background:var(--forest);
+    color:var(--bone);
+    padding:2.5rem;
+  }
+  .name-card p{font-size:1rem;}
+  .name-card .q{
+    font-family:var(--display);
+    font-size:clamp(1.6rem, 2.6vw, 2.2rem);
+    line-height:1.15;
+    text-transform:uppercase;
+    color:var(--amber);
+    margin-bottom:1.25rem;
+    display:block;
+  }
+  .name-card cite{
+    display:block;
+    margin-top:1rem;
+    font-style:normal;
+    font-weight:700;
+    font-size:0.8rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    opacity:0.8;
+  }
+
+  /* ---------- FORMAT (moss strip) ---------- */
+  .format{background:var(--moss);color:var(--ink);}
+  .format-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:2px;
+    background:var(--ink);
+    border:2px solid var(--ink);
+    margin-top:1rem;
+  }
+  @media(max-width:860px){.format-grid{grid-template-columns:1fr;}}
+  .format-cell{
+    background:var(--moss);
+    padding:2rem;
+  }
+  .format-cell h3{
+    font-family:var(--display);
+    font-weight:400;
+    text-transform:uppercase;
+    font-size:1.5rem;
+    margin-bottom:0.75rem;
+  }
+  .format-cell p{font-size:0.98rem;}
+
+  /* ---------- DATES (amber) ---------- */
+  .dates{background:var(--amber);color:var(--ink);}
+  .dates .eyebrow{color:var(--forest);}
+  .date-list{list-style:none;margin-top:1rem;}
+  .date-list li{
+    display:flex;
+    align-items:baseline;
+    gap:clamp(1rem, 4vw, 3rem);
+    border-top:3px solid var(--ink);
+    padding:1.1rem 0;
+  }
+  .date-list li:last-child{border-bottom:3px solid var(--ink);}
+  .date-list .num{
+    font-family:var(--display);
+    font-size:1.3rem;
+    width:2.2rem;
+    flex:none;
+  }
+  .date-list .day{
+    font-family:var(--display);
+    text-transform:uppercase;
+    font-size:clamp(1.5rem, 3.5vw, 2.6rem);
+    line-height:1;
+  }
+  .date-list .note{
+    margin-left:auto;
+    font-weight:700;
+    font-size:0.78rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    text-align:right;
+  }
+  .dates .fine{
+    margin-top:1.5rem;
+    font-weight:500;
+    max-width:58ch;
+  }
+
+  /* ---------- COMMITMENT (ink) ---------- */
+  .commit{background:var(--ink);color:var(--bone);}
+  .commit .eyebrow{color:var(--amber);}
+  .commit h2{max-width:18ch;}
+  .seats{
+    display:flex;
+    gap:clamp(0.6rem, 2vw, 1.25rem);
+    margin:2.5rem 0;
+    flex-wrap:wrap;
+  }
+  .seats .seat{
+    width:clamp(34px, 6vw, 56px);
+    height:clamp(34px, 6vw, 56px);
+    border-radius:50%;
+    background:var(--amber);
+    flex:none;
+  }
+  .seats .seat.open{
+    background:transparent;
+    border:3px dashed var(--amber);
+  }
+  .seats-caption{
+    font-weight:700;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    font-size:0.8rem;
+    color:var(--amber);
+    margin-bottom:2rem;
+  }
+
+  /* ---------- JOIN (forest) ---------- */
+  .join{background:var(--forest);color:var(--bone);}
+  .join .eyebrow{color:var(--amber);}
+  .join h2{max-width:20ch;}
+  .join a.mail{
+    display:inline-block;
+    margin-top:1.5rem;
+    font-family:var(--display);
+    text-transform:uppercase;
+    font-size:clamp(1.3rem, 3.5vw, 2.4rem);
+    color:var(--amber);
+    text-decoration:none;
+    border-bottom:4px solid var(--amber);
+    line-height:1.3;
+    word-break:break-all;
+  }
+  .join a.mail:hover{color:var(--bone);border-color:var(--bone);}
+  .join .steps{
+    margin-top:2.5rem;
+    max-width:58ch;
+  }
+  .join .steps p + p{margin-top:1rem;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--forest);
+    color:var(--bone);
+    padding:2rem clamp(1.25rem, 6vw, 6rem) 3rem;
+    border-top:1px solid rgba(241,235,222,0.15);
+    display:flex;
+    flex-wrap:wrap;
+    gap:1rem;
+    justify-content:space-between;
+    align-items:center;
+    font-size:0.85rem;
+  }
+  footer .fm{
+    font-family:var(--display);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+  }
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <a class="wordmark" href="#top">
+    <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="none" stroke="#E39B2D" stroke-width="3"/></svg>
+    The Clearing
+  </a>
+  <ul>
+    <li><a href="#about">What this is</a></li>
+    <li><a href="#format">How it works</a></li>
+    <li><a href="#dates">Fall dates</a></li>
+    <li><a href="#commit">The commitment</a></li>
+    <li><a href="#join">Join</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero block" id="top">
+  <svg class="circle-mark" viewBox="0 0 400 400" aria-hidden="true">
+    <g fill="none" stroke="#F1EBDE" stroke-width="6">
+      <circle cx="200" cy="60"  r="22"/>
+      <circle cx="308" cy="106" r="22"/>
+      <circle cx="344" cy="218" r="22"/>
+      <circle cx="270" cy="316" r="22"/>
+      <circle cx="130" cy="316" r="22"/>
+      <circle cx="56"  cy="218" r="22"/>
+      <circle cx="92"  cy="106" r="22"/>
+    </g>
+  </svg>
+  <h1>
+    <span class="line">A circle</span>
+    <span class="line">of Black men,</span>
+    <span class="line accent">doing the work.</span>
+  </h1>
+  <p class="sub">The Clearing is a peer support group for Black men in Pittsburgh. We meet every other week, in rounds. The next round starts September 20.</p>
+  <div class="meta">
+    <span>Pittsburgh, PA</span>
+    <span>Sundays</span>
+    <span>7 sessions · Sep–Dec</span>
+  </div>
+  <div><a class="hero-cta" href="#join">Join the fall round</a></div>
+</header>
+
+<!-- ABOUT -->
+<section class="about block" id="about">
+  <div class="about-grid">
+    <div>
+      <span class="eyebrow">What this is</span>
+      <h2>The world comes in with us.</h2>
+      <div class="prose">
+        <p>Most support spaces ask you to leave the world at the door. We don't, because we can't. For Black men, so much of what we carry comes from out there — work, money, family, the news, the way we're seen and not seen. Pretending otherwise isn't healing. It's another performance.</p>
+        <p>The Clearing is <strong>peer support</strong>: no therapist, no curriculum, no audience. A closed circle of Black men who show up for each other, every other week, and say the real thing out loud. What's said in the circle stays in the circle.</p>
+        <p>This is not group therapy and not a substitute for it — some of us are in therapy too, and the circle works alongside that, not instead of it.</p>
+      </div>
+    </div>
+    <aside class="name-card">
+      <span class="q">"…in this here place, we flesh…"</span>
+      <p>The name comes from Toni Morrison's <em>Beloved</em>. The Clearing is the place in the woods where Baby Suggs gathered her people — no church, no doctrine — and told them to love themselves precisely because the world outside would not. The healing didn't ignore the world. It started by naming it.</p>
+      <cite>Toni Morrison, Beloved</cite>
+    </aside>
+  </div>
+</section>
+
+<!-- FORMAT -->
+<section class="format block" id="format">
+  <span class="eyebrow">How it works</span>
+  <h2>Rounds, not drop-ins.</h2>
+  <div class="format-grid">
+    <div class="format-cell">
+      <h3>One round</h3>
+      <p>Seven sessions across about three months, every other week. The same men, start to finish. Depth comes from continuity — the circle gets somewhere because nobody's starting over.</p>
+    </div>
+    <div class="format-cell">
+      <h3>One circle</h3>
+      <p>Small and closed. Once a round begins, the roster is set. New members join at the start of the next round, not the middle of this one.</p>
+    </div>
+    <div class="format-cell">
+      <h3>One rule</h3>
+      <p>What's said here stays here. Confidentiality isn't a policy — it's what makes honesty possible.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DATES -->
+<section class="dates block" id="dates">
+  <span class="eyebrow">Fall 2026 round</span>
+  <h2>Seven Sundays.</h2>
+  <ol class="date-list">
+    <li><span class="num">01</span><span class="day">September 20</span><span class="note">Opening circle</span></li>
+    <li><span class="num">02</span><span class="day">October 4</span></li>
+    <li><span class="num">03</span><span class="day">October 18</span></li>
+    <li><span class="num">04</span><span class="day">November 1</span></li>
+    <li><span class="num">05</span><span class="day">November 15</span></li>
+    <li><span class="num">06</span><span class="day">December 6</span><span class="note">After the holiday break</span></li>
+    <li><span class="num">07</span><span class="day">December 20</span><span class="note">Closing circle</span></li>
+  </ol>
+  <p class="fine">Time and location are shared with confirmed members. If you're reading this after September 20, reach out anyway — we'll hold your name for the next round.</p>
+</section>
+
+<!-- COMMITMENT -->
+<section class="commit block" id="commit">
+  <span class="eyebrow">The commitment</span>
+  <h2>Every chair matters. Including yours.</h2>
+  <div class="seats" role="img" aria-label="Seven circles representing seven sessions; six filled and one outlined, representing the one absence allowed.">
+    <span class="seat"></span>
+    <span class="seat"></span>
+    <span class="seat"></span>
+    <span class="seat"></span>
+    <span class="seat"></span>
+    <span class="seat"></span>
+    <span class="seat open"></span>
+  </div>
+  <p class="seats-caption">Seven sessions. Miss no more than one.</p>
+  <div class="prose">
+    <p>When you join a round, you're not signing up for a meeting. You're making a promise to six other men. The circle only works when it's whole — every empty chair changes what the rest of us can say, and who we can say it to.</p>
+    <p>So the expectation is simple: <strong>commit to all seven sessions.</strong> Life happens — one absence is understood, no explanation owed. Beyond that, we'll ask you to step back and rejoin at the start of the next round, with no hard feelings and a held seat.</p>
+    <p>If you can't make the commitment this round, that's an honest answer and a respected one. The Clearing runs again in the new year.</p>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section class="join block" id="join">
+  <span class="eyebrow">Join the fall round</span>
+  <h2>Pull up a chair.</h2>
+  <div class="prose">
+    <p>The fall round opens September 20. Seats are limited and confirmed by a short conversation — not an application, just the two of us talking so you know what you're walking into and we know you're ready to commit.</p>
+  </div>
+  <a class="mail" href="mailto:hello@theclearingpgh.org?subject=Fall%20round">hello@theclearingpgh.org</a>
+  <div class="steps">
+    <p><strong>1.</strong> Email us — a sentence or two is plenty.</p>
+    <p><strong>2.</strong> We'll set up a short call.</p>
+    <p><strong>3.</strong> Commit to the seven dates, and your chair is yours.</p>
+  </div>
+</section>
+
+<footer>
+  <span class="fm">The Clearing · Pittsburgh</span>
+  <span>A circle of Black men, doing the work.</span>
+</footer>
+
+</body>
+</html>
