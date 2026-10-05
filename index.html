@@ -267,6 +267,73 @@
     max-width:58ch;
   }
 
+  .cal-actions{
+    margin-top:2.25rem;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:1rem 1.5rem;
+  }
+  .cal-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:0.7rem;
+    background:var(--forest);
+    color:var(--bone);
+    text-decoration:none;
+    font-family:var(--display);
+    text-transform:uppercase;
+    font-size:1.1rem;
+    letter-spacing:0.05em;
+    padding:0.95rem 1.9rem;
+    border:3px solid var(--ink);
+    flex:none;
+  }
+  .cal-btn:hover{background:var(--ink);}
+  .cal-btn svg{flex:none;}
+  .cal-hint{
+    font-weight:500;
+    font-size:0.9rem;
+    max-width:40ch;
+  }
+  .cal-alt{margin-top:1.75rem;}
+  .cal-alt summary{
+    font-weight:700;
+    font-size:0.78rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    cursor:pointer;
+    display:inline-block;
+    max-width:100%;
+    border-bottom:2px solid var(--ink);
+  }
+  .cal-alt summary::-webkit-details-marker{display:none;}
+  .cal-alt summary::marker{content:"";}
+  .cal-alt summary::before{content:"+\00a0";}
+  .cal-alt[open] summary::before{content:"\2212\00a0";}
+  .cal-alt ul{
+    list-style:none;
+    margin-top:1.25rem;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6rem;
+  }
+  .cal-alt ul a{
+    display:inline-flex;
+    align-items:baseline;
+    gap:0.45rem;
+    border:2px solid var(--ink);
+    padding:0.4rem 0.85rem;
+    text-decoration:none;
+    font-weight:700;
+    font-size:0.8rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+  .cal-alt ul a:hover{background:var(--forest);color:var(--bone);border-color:var(--forest);}
+  .cal-alt ul .n{font-family:var(--display);font-size:0.95rem;}
+
   /* ---------- COMMITMENT (ink) ---------- */
   .commit{background:var(--ink);color:var(--bone);}
   .commit .eyebrow{color:var(--amber);}
@@ -437,6 +504,29 @@
     <li><span class="num">07</span><span class="day">December 20</span><span class="time">6:00–8:30 PM</span><span class="note">Closing circle</span></li>
   </ol>
   <p class="fine">Every session runs 6:00–8:30 PM. Location is shared with confirmed members. If you're reading this after September 20, reach out anyway — we'll hold your name for the next round.</p>
+
+  <div class="cal-actions">
+    <a class="cal-btn" href="theclearing-fall-2026.ics" download>
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+        <rect x="1.5" y="3.5" width="17" height="15" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M1.5 8.5h17M6 1.5v4M14 1.5v4" fill="none" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      Add all seven dates
+    </a>
+    <span class="cal-hint">Downloads a calendar file (.ics) with every session &mdash; works with Apple&nbsp;Calendar, Outlook, and Google&nbsp;Calendar import.</span>
+  </div>
+  <details class="cal-alt">
+    <summary>Or add sessions one at a time (Google&nbsp;Calendar)</summary>
+    <ul>
+      <li><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=The%20Clearing%20%E2%80%94%20Session%201%20of%207&amp;dates=20260920T180000/20260920T203000&amp;ctz=America/New_York&amp;location=Pittsburgh%2C%20PA&amp;details=Session%201%20of%207%20in%20the%20fall%20round%20of%20The%20Clearing%2C%20a%20peer%20support%20circle%20for%20Black%20men%20in%20Pittsburgh.%20Location%20is%20shared%20with%20confirmed%20members.%20Questions%3A%20hello%40theclearingpgh.org" target="_blank" rel="noopener"><span class="n">01</span> September 20</a></li>
+      <li><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=The%20Clearing%20%E2%80%94%20Session%202%20of%207&amp;dates=20261004T180000/20261004T203000&amp;ctz=America/New_York&amp;location=Pittsburgh%2C%20PA&amp;details=Session%202%20of%207%20in%20the%20fall%20round%20of%20The%20Clearing%2C%20a%20peer%20support%20circle%20for%20Black%20men%20in%20Pittsburgh.%20Location%20is%20shared%20with%20confirmed%20members.%20Questions%3A%20hello%40theclearingpgh.org" target="_blank" rel="noopener"><span class="n">02</span> October 4</a></li>
+      <li><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=The%20Clearing%20%E2%80%94%20Session%203%20of%207&amp;dates=20261018T180000/20261018T203000&amp;ctz=America/New_York&amp;location=Pittsburgh%2C%20PA&amp;details=Session%203%20of%207%20in%20the%20fall%20round%20of%20The%20Clearing%2C%20a%20peer%20support%20circle%20for%20Black%20men%20in%20Pittsburgh.%20Location%20is%20shared%20with%20confirmed%20members.%20Questions%3A%20hello%40theclearingpgh.org" target="_blank" rel="noopener"><span class="n">03</span> October 18</a></li>
+      <li><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=The%20Clearing%20%E2%80%94%20Session%204%20of%207&amp;dates=20261101T180000/20261101T203000&amp;ctz=America/New_York&amp;location=Pittsburgh%2C%20PA&amp;details=Session%204%20of%207%20in%20the%20fall%20round%20of%20The%20Clearing%2C%20a%20peer%20support%20circle%20for%20Black%20men%20in%20Pittsburgh.%20Location%20is%20shared%20with%20confirmed%20members.%20Questions%3A%20hello%40theclearingpgh.org" target="_blank" rel="noopener"><span class="n">04</span> November 1</a></li>
+      <li><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=The%20Clearing%20%E2%80%94%20Session%205%20of%207&amp;dates=20261115T180000/20261115T203000&amp;ctz=America/New_York&amp;location=Pittsburgh%2C%20PA&amp;details=Session%205%20of%207%20in%20the%20fall%20round%20of%20The%20Clearing%2C%20a%20peer%20support%20circle%20for%20Black%20men%20in%20Pittsburgh.%20Location%20is%20shared%20with%20confirmed%20members.%20Questions%3A%20hello%40theclearingpgh.org" target="_blank" rel="noopener"><span class="n">05</span> November 15</a></li>
+      <li><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=The%20Clearing%20%E2%80%94%20Session%206%20of%207&amp;dates=20261206T180000/20261206T203000&amp;ctz=America/New_York&amp;location=Pittsburgh%2C%20PA&amp;details=Session%206%20of%207%20in%20the%20fall%20round%20of%20The%20Clearing%2C%20a%20peer%20support%20circle%20for%20Black%20men%20in%20Pittsburgh.%20Location%20is%20shared%20with%20confirmed%20members.%20Questions%3A%20hello%40theclearingpgh.org" target="_blank" rel="noopener"><span class="n">06</span> December 6</a></li>
+      <li><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=The%20Clearing%20%E2%80%94%20Session%207%20of%207&amp;dates=20261220T180000/20261220T203000&amp;ctz=America/New_York&amp;location=Pittsburgh%2C%20PA&amp;details=Session%207%20of%207%20in%20the%20fall%20round%20of%20The%20Clearing%2C%20a%20peer%20support%20circle%20for%20Black%20men%20in%20Pittsburgh.%20Location%20is%20shared%20with%20confirmed%20members.%20Questions%3A%20hello%40theclearingpgh.org" target="_blank" rel="noopener"><span class="n">07</span> December 20</a></li>
+    </ul>
+  </details>
 </section>
 
 <!-- COMMITMENT -->
